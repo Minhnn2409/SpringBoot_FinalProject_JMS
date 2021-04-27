@@ -1,0 +1,5 @@
+package com.trungtamjava.SpringProject.controller.admin.category;
+
+public class AdminCategoryController {
+
+}

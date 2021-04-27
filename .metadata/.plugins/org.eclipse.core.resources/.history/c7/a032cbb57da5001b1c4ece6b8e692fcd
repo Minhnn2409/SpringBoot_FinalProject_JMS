@@ -1,0 +1,112 @@
+package com.trungtamjava.SpringProject.service.impl;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.trungtamjava.SpringProject.dao.UserDao;
+import com.trungtamjava.SpringProject.entity.User;
+import com.trungtamjava.SpringProject.model.UserDTO;
+import com.trungtamjava.SpringProject.service.UserService;
+
+@Service
+@Transactional
+public class UserServiceImpl implements UserService {
+	@Autowired
+	private UserDao userDao;
+
+	@Override
+	public void add(UserDTO userDTO) {
+		userDao.add(convertEntity(userDTO));
+	}
+
+	@Override
+	public void update(UserDTO userDTO) {
+		if (userDTO != null) {
+
+			userDao.update(convertEntity(userDTO));
+		}
+	}
+
+	@Override
+	public void delete(int id) {
+		User user = userDao.getById(id);
+		if (user != null) {
+			userDao.delete(user);
+		}
+	}
+
+	@Override
+	public List<UserDTO> getAllUsers() {
+		for (User iterable_element : iterable) {
+			
+		}
+		return null;
+	}
+
+	@Override
+	public UserDTO getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserDTO getByUserName(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserDTO> getUserByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserDTO> search(String keyword, int maxPerPage, int offset) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private User convertEntity(UserDTO userDTO) {
+		User user = new User();
+		user.setId(userDTO.getId());
+		user.setName(userDTO.getName());
+		user.setAge(userDTO.getAge());
+		user.setAddress(userDTO.getAddress());
+		user.setEmail(userDTO.getEmail());
+		user.setGender(userDTO.getGender());
+		user.setPassword(userDTO.getPassword());
+		user.setUserName(userDTO.getUserName());
+		user.setRole(userDTO.getRole());
+		user.setPhoneNum(userDTO.getPhoneNum());
+		user.setImageAvatar(userDTO.getImageAvatar());
+		return user;
+	}
+	
+	private UserDTO convertDTO(User user) {
+		UserDTO userDTO = new UserDTO();
+		user.setId(userDTO.getId());
+		user.setName(userDTO.getName());
+		user.setAge(userDTO.getAge());
+		user.setAddress(userDTO.getAddress());
+		user.setEmail(userDTO.getEmail());
+		user.setGender(userDTO.getGender());
+		user.setPassword(userDTO.getPassword());
+		user.setUserName(userDTO.getUserName());
+		user.setRole(userDTO.getRole());
+		user.setPhoneNum(userDTO.getPhoneNum());
+		user.setImageAvatar(userDTO.getImageAvatar());
+		return user;
+	}
+
+}

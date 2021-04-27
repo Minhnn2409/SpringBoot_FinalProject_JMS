@@ -1,0 +1,5 @@
+package com.trungtamjava.SpringProject.dao.impl;
+
+public class CategoryDaoImpl {
+
+}

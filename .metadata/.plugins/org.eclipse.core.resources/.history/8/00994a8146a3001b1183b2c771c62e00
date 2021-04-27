@@ -1,0 +1,96 @@
+package com.trungtamjava.SpringProject.dao.impl;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
+import com.trungtamjava.SpringProject.dao.ProductDao;
+import com.trungtamjava.SpringProject.entity.Product;
+import com.trungtamjava.SpringProject.entity.User;
+
+@Repository
+@Transactional
+public class ProductDaoImpl implements ProductDao{
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	@Override
+	public void add(Product product) {
+		entityManager.persist(product);
+	}
+
+	@Override
+	public void update(Product product) {
+		entityManager.merge(product);
+	}
+
+	@Override
+	public void delete(int id) {
+		entityManager.remove(id);
+	}
+
+	@Override
+	public List<Product> getAllProducts() {
+		String jql = "SELECT * FROM product";
+		return entityManager.createQuery(jql, User.class).getResultList();
+	}
+
+	@Override
+	public Product getProductById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getProductByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getByCategory(int categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getLimitProduct(int numProduct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Product> search(String name, int maxPage, int offset) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getBestSeller(int countProduct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getOutOfStock(int countProduct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getLowPrice(int countProduct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

@@ -1,0 +1,84 @@
+package com.trungtamjava.SpringProject.service.impl;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.trungtamjava.SpringProject.dao.CategoryDao;
+import com.trungtamjava.SpringProject.entity.Category;
+import com.trungtamjava.SpringProject.model.CategoryDTO;
+import com.trungtamjava.SpringProject.service.CategoryService;
+
+@Service
+@Transactional
+public class CategoryServiceImpl implements CategoryService {
+	@Autowired
+	private CategoryDao categoryDao;
+
+	@Override
+	public void add(CategoryDTO category) {
+		categoryDao.add(convertToEntity(category));
+	}
+
+	@Override
+	public void delete(int id) {
+		Category category = categoryDao.getById(id);
+		if(category != null) {
+			
+		}
+	}
+
+	@Override
+	public void update(CategoryDTO updateCategory) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public CategoryDTO getById(int Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CategoryDTO> getByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CategoryDTO> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CategoryDTO> search(String name, int offset, int maxPerPage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private Category convertToEntity(CategoryDTO categoryDTO) {
+		Category category = new Category();
+		category.setId(categoryDTO.getId());
+		category.setName(categoryDTO.getName());
+		return category;
+	}
+
+	private CategoryDTO convertToDTO(Category category) {
+		CategoryDTO categoryDTO = new CategoryDTO();
+		category.setId(category.getId());
+		category.setName(category.getName());
+		return categoryDTO;
+	}
+
+}

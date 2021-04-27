@@ -1,0 +1,71 @@
+package com.trungtamjava.SpringProject.dao.impl;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
+import com.trungtamjava.SpringProject.dao.UserDao;
+import com.trungtamjava.SpringProject.entity.User;
+
+@Repository
+@Transactional
+public class UserDaoImpl implements UserDao{
+
+	@PersistenceContext
+	private EntityManager entityManager;
+	@Override
+	public void add(User user) {
+		entityManager.persist(user);
+	}
+
+	@Override
+	public void update(User user) {
+		entityManager.merge(user;	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getByUserName(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getUserByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> search(String keyword, int maxPerPage, int offset) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

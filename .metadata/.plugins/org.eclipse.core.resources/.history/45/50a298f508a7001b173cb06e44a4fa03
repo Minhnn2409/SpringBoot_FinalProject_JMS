@@ -1,0 +1,9 @@
+package com.trungtamjava.SpringProject.controller.admin.category;
+
+import javax.transaction.Transactional;
+
+@Service
+@Transactional
+public class AdminCategoryController {
+
+}

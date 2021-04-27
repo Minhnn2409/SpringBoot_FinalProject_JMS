@@ -1,0 +1,32 @@
+package com.trungtamjava.SpringProject.model;
+
+import java.util.Date;
+
+import com.trungtamjava.SpringProject.entity.Bill;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Bill bill = new Bill();
+bill.setId(billDTO.getId());
+bill.setPriceTotal(billDTO.getPriceTotal());
+bill.setBuyer(billDTO.getBuyer());
+bill.setDateBuy(billDTO.getDateBuy());
+bill.setBillProducts(billDTO.getBillProduct());
+return bill; {
+	private int id;
+	private String name;
+	private String userName;
+	private String password;
+	private int age;
+	private String email;
+	private String phoneNum;
+	private String address;
+	private String role;
+	private String gender;
+	private String imageAvatar;
+}

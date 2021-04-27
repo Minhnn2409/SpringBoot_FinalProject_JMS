@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.trungtamjava.SpringProject.controller.admin.user.AdminAddUserController.java&apos; to &apos;AdminUserController.java&apos;&#x0D;&#x0A;- Original project: &apos;SpringProject&apos;&#x0D;&#x0A;- Original element: &apos;com.trungtamjava.SpringProject.controller.admin.user.AdminAddUserController.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.trungtamjava.SpringProject.controller.admin.user.AdminUserController.java&apos;" description="Rename compilation unit &apos;AdminAddUserController.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.trungtamjava.SpringProject.controller.admin.user{AdminAddUserController.java" name="AdminUserController.java" references="false" stamp="1619431734248" version="1.0"/>
+</session>

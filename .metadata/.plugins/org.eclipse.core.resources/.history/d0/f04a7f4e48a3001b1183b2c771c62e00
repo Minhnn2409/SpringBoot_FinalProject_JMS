@@ -1,0 +1,66 @@
+package com.trungtamjava.SpringProject.dao.impl;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
+import com.trungtamjava.SpringProject.dao.CategoryDao;
+import com.trungtamjava.SpringProject.entity.Category;
+
+@Repository
+@Transactional
+public class CategoryDaoImpl implements CategoryDao{
+	@PersistenceContext
+	private EntityManager entityManager;
+	@Override
+	public void add(Category category) {
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Category updateCategory) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Category getById(int Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Category> getByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Category> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Category> search(String name, int offset, int maxPerPage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

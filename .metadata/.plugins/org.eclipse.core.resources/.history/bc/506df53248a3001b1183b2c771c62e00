@@ -1,0 +1,13 @@
+package com.trungtamjava.SpringProject.dao.impl;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
+import com.trungtamjava.SpringProject.dao.CategoryDao;
+
+@Repository
+@Transactional
+public class CategoryDaoImpl implements CategoryDao{
+
+}

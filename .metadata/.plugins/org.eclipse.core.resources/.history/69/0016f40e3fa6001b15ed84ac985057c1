@@ -1,0 +1,91 @@
+package com.trungtamjava.SpringProject.service.impl;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.trungtamjava.SpringProject.entity.Category;
+import com.trungtamjava.SpringProject.model.CategoryDTO;
+import com.trungtamjava.SpringProject.service.CategoryService;
+
+@Service
+@Transactional
+public class CategoryServiceImpl implements CategoryService {
+	@Autowired
+	private UserDao userDao;
+
+	@Override
+	public void add(CategoryDTO category) {
+
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void update(CategoryDTO updateCategory) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public CategoryDTO getById(int Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CategoryDTO> getByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CategoryDTO> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CategoryDTO> search(String name, int offset, int maxPerPage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private Category convertToEntity(UserDTO userDTO) {
+		User user = new User();
+		user.setId(userDTO.getId());
+		user.setName(userDTO.getName());
+		user.setAge(userDTO.getAge());
+		user.setAddress(userDTO.getAddress());
+		user.setEmail(userDTO.getEmail());
+		user.setGender(userDTO.getGender());
+		user.setPassword(userDTO.getPassword());
+		user.setUserName(userDTO.getUserName());
+		user.setRole(userDTO.getRole());
+		user.setPhoneNum(userDTO.getPhoneNum());
+		user.setImageAvatar(userDTO.getImageAvatar());
+		return user;
+	}
+
+	private CategoryDTO convertToDTO(Category category) {
+		CategoryDTO categoryDTO = new CategoryDTO();
+		userDTO.setId(user.getId());
+		userDTO.setName(user.getName());
+		
+		return categoryDTO;
+	}
+
+}

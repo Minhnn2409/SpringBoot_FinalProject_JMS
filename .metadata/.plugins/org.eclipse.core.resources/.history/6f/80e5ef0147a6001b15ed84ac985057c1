@@ -1,0 +1,5 @@
+package com.trungtamjava.SpringProject.service.impl;
+
+public class BillProductServiceImpl {
+
+}

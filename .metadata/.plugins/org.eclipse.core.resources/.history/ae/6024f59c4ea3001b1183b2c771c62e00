@@ -1,0 +1,24 @@
+package com.trungtamjava.SpringProject.dao;
+
+import java.util.List;
+
+import com.trungtamjava.SpringProject.entity.Category;
+
+
+public interface CategoryDao {
+	void add(Category category);
+
+	void delete(int id);
+
+	void update(CategoryDTO updateCategory);
+
+	CategoryDTO getById(int Id);
+
+	List<CategoryDTO> getByName(String name);
+
+	List<CategoryDTO> getAll();
+
+	List<CategoryDTO> search(String name, int offset, int maxPerPage);
+
+	int count(String name);
+}

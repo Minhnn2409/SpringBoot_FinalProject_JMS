@@ -1,0 +1,36 @@
+package com.trungtamjava.SpringProject.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.sun.istack.NotNull;
+import com.trungtamjava.SpringProject.model.CategoryDTO;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@Table(name = "category")
+@AllArgsConstructor
+@NoArgsConstructor
+public class 	CategoryDTO categoryDTO = new CategoryDTO();
+category.setId(category.getId());
+category.setName(category.getName());
+return categoryDTO; {
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
+	private int id;
+	
+	@Column(name = "name")
+	private String name;
+	
+}

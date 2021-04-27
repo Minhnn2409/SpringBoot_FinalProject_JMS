@@ -1,0 +1,64 @@
+package com.trungtamjava.SpringProject.dao.impl;
+
+import java.util.List;
+
+import com.trungtamjava.SpringProject.dao.UserDao;
+import com.trungtamjava.SpringProject.entity.User;
+
+public class UserDaoImpl implements UserDao{
+
+	@Override
+	public void add(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getByUserName(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getUserByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> search(String keyword, int maxPerPage, int offset) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

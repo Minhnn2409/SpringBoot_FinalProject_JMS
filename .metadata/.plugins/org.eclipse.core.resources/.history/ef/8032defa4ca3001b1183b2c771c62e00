@@ -1,0 +1,5 @@
+package com.trungtamjava.SpringProject.service;
+
+public class ProductService {
+
+}

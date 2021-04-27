@@ -1,0 +1,11 @@
+package com.trungtamjava.SpringProject.service.impl;
+
+import javax.transaction.Transactional;
+
+import com.trungtamjava.SpringProject.service.BillProductService;
+
+@Service
+@Transactional
+public class BillProductServiceImpl implements BillProductService {
+
+}

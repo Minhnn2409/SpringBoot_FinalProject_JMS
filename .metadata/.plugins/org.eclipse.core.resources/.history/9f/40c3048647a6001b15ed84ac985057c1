@@ -1,0 +1,90 @@
+package com.trungtamjava.SpringProject.service.impl;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.trungtamjava.SpringProject.dao.BillProductDao;
+import com.trungtamjava.SpringProject.entity.BillProduct;
+import com.trungtamjava.SpringProject.model.BillProductDTO;
+import com.trungtamjava.SpringProject.service.BillProductService;
+
+@Service
+@Transactional
+public class BillProductServiceImpl implements BillProductService {
+
+	@Autowired
+	private BillProductDao billProductDao;
+
+	@Override
+	public void create(BillProductDTO billProduct) {
+		billProductDao.create(null);
+	}
+
+	@Override
+	public void update(BillProductDTO billProduct) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public BillProductDTO getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BillProductDTO> getByBill(int billId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<BillProductDTO> search(String name, int maxPage, int offset) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double getCoupon(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private BillProduct convertToEntity(BillProductDTO billProductDTO) {
+		BillProduct billProduct = new BillProduct();
+		billProduct.setId(billProductDTO.getId());
+		billProduct.setProduct(billProductDTO.getProduct());
+		billProduct.setBill(billProductDTO.getBill());
+		billProduct.setQuantity(billProductDTO.getQuantity());
+		billProduct.setUnitPrice(billProductDTO.getUnitPrice());
+		
+		return billProduct;
+	}
+
+	private Bill convertToEntity(BillProductDTO billProductDTO) {
+		BillProduct billProduct = new BillProduct();
+		billProduct.setId(billProductDTO.getId());
+		billProduct.setProduct(billProductDTO.getProduct());
+		billProduct.setBill(billProductDTO.getBill());
+		billProduct.setQuantity(billProductDTO.getQuantity());
+		billProduct.setUnitPrice(billProductDTO.getUnitPrice());
+		
+		return billProduct;
+	}
+}

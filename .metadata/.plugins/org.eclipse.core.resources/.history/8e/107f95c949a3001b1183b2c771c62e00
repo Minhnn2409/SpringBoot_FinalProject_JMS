@@ -1,0 +1,75 @@
+package com.trungtamjava.SpringProject.dao.impl;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
+import com.trungtamjava.SpringProject.dao.BillDao;
+import com.trungtamjava.SpringProject.entity.Bill;
+
+@Repository
+@Transactional
+public class BillDaoImpl implements BillDao {
+	
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	@Override
+	public void create(Bill bill) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Bill bill) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Bill getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Bill> getByUser(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Bill> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Bill> search(String keyword, int maxPerPage, int offset) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Bill getLastestBill() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
