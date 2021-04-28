@@ -33,9 +33,13 @@ public class AdminCategoryController {
 		request.setAttribute("page", page);
 		return "admin/category/searchCategory";
 	}
-	
+
 	@GetMapping(value = "/admin/category/detail")
-	public String detailCategory(@RequestParam)
+	public String detailCategory(HttpServletRequest request, @RequestParam("id") int id) {
+		CategoryDTO categoryDTO = categoryService.getById(id);
+		request.setAttribute("category", categoryDTO);
+		return "admin/category/detailCategory";
+	}
 
 	@GetMapping(value = "/admin/category/add")
 	public String addCategory() {
@@ -54,7 +58,8 @@ public class AdminCategoryController {
 	}
 
 	@PostMapping(value = "/admin/category/update")
-	public String updateCategory(@RequestAttribute("category") CategoryDTO categoryDTO) {
+	public String updateCategory(@RequestParam("id") int id) {
+		CategoryDTO categoryDTO = categoryService.getById(id);
 		categoryService.update(categoryDTO);
 		return "redirect:/admin/category/search";
 	}

@@ -52,14 +52,14 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public List<Product> getByCategory(int categoryId) {
-//		String jql = "SELECT product FROM product WHERE  "
-		return null;
+		String jql = "SELECT p FROM product p join p.category c WHERE c.id = :categoryId";
+		return entityManager.createQuery(jql, Product.class).setParameter("categoryId", categoryId).getResultList();
 	}
 
 	@Override
 	public List<Product> getLimitProduct(int numProduct) {
-		// TODO Auto-generated method stub
-		return null;
+		String jql = "SELECT product from product LIMIT :numProduct";
+		return entityManager.createQuery(jql, Product.class).setParameter("numProduct", numProduct).getResultList();
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class ProductDaoImpl implements ProductDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
+
 	@Override
 	public List<Product> search(String name, int maxPage, int offset) {
 		String jql = "SELECT product FROM product WHERE product.name LIKE :name";

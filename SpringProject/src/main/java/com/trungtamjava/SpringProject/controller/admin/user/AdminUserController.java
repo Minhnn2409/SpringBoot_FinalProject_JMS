@@ -1,9 +1,13 @@
 package com.trungtamjava.SpringProject.controller.admin.user;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,7 +52,7 @@ public class AdminUserController {
 	}
 
 	@PostMapping(value = "/admin/user/add")
-	public String addUser(HttpServletRequest request, @RequestAttribute("user") UserDTO userDTO) {
+	public String addUser(@RequestAttribute("user") UserDTO userDTO) {
 		userService.add(userDTO);
 		return "redirect:/admin/user/search";
 	}
@@ -59,7 +63,8 @@ public class AdminUserController {
 	}
 
 	@PostMapping(value = "/admin/user/update")
-	public String updateUser(Model model, @RequestAttribute("user") UserDTO userDTO) {
+	public String updateUser(@RequestParam("id") int id) {
+		UserDTO userDTO = userService.getById(id);
 		userService.update(userDTO);
 		return "redirect:/admin/user/search";
 	}
@@ -68,5 +73,14 @@ public class AdminUserController {
 	public String deleteUser(@RequestParam("id") int id) {
 		userService.delete(id);
 		return "redirect:/admin/user/delete";
+	}
+
+	@GetMapping(value = "/user/download")
+	public void downloadUser(@RequestAttribute("image") String image, HttpServletResponse resp) throws IOException {
+		final String UPLOAD_FOLDER = "D:\\Tech\\JMS\\SpringBoot_Final_Project\\SpringBoot_FinalProject_JMS\\SpringProject\\images\\users";
+		File file = new File(UPLOAD_FOLDER + File.separator + image);
+		if (file.exists()) {
+			FileUtils.copyFile(file, resp.getOutputStream());
+		}
 	}
 }
