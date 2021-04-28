@@ -1,5 +1,6 @@
 package com.trungtamjava.SpringProject.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -27,31 +28,33 @@ public class BillProductServiceImpl implements BillProductService {
 
 	@Override
 	public void create(BillProductDTO billProduct) {
-		billProductDao.create(null);
+		billProductDao.create(convertToEntity(billProduct));
 	}
 
 	@Override
 	public void update(BillProductDTO billProduct) {
-		// TODO Auto-generated method stub
-
+		billProductDao.update(convertToEntity(billProduct));
 	}
 
 	@Override
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+	public void delete(BillProductDTO billProductDTO) {
+		billProductDao.delete(convertToEntity(billProductDTO));
 	}
 
 	@Override
 	public BillProductDTO getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return convertToDTO(billProductDao.getById(id));
 	}
 
 	@Override
 	public List<BillProductDTO> getByBill(int billId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<BillProduct> billProducts = billProductDao.getByBill(billId);
+		List<BillProductDTO> billProductDTOs = new ArrayList<BillProductDTO>();
+
+		for (BillProduct billProduct : billProducts) {
+			billProductDTOs.add(convertToDTO(billProduct));
+		}
+		return billProductDTOs;
 	}
 
 	@Override
@@ -62,8 +65,12 @@ public class BillProductServiceImpl implements BillProductService {
 
 	@Override
 	public List<BillProductDTO> search(String name, int maxPage, int offset) {
-		// TODO Auto-generated method stub
-		return null;
+		List<BillProduct> billProducts = billProductDao.search(name, maxPage, offset);
+		List<BillProductDTO> billProductDTOs = new ArrayList<BillProductDTO>();
+		for (BillProduct billProduct : billProducts) {
+			billProductDTOs.add(convertToDTO(billProduct));
+		}
+		return billProductDTOs;
 	}
 
 	@Override

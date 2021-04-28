@@ -29,8 +29,8 @@ public class BillDaoImpl implements BillDao {
 	}
 
 	@Override
-	public void delete(int id) {
-		entityManager.remove(id);
+	public void delete(Bill bill) {
+		entityManager.remove(bill);
 	}
 
 	@Override
@@ -40,9 +40,8 @@ public class BillDaoImpl implements BillDao {
 
 	@Override
 	public List<Bill> getByUser(int userId) {
-		/*
-		 * String jql = "SELECT bill WHERE bill WHERE"
-		 */ return null;
+		String jql = "SELECT b FROM Bill b join b.user u WHERE u.id = :userId";
+		return entityManager.createQuery(jql, Bill.class).setParameter("userId", userId).getResultList();
 	}
 
 	@Override
@@ -62,6 +61,12 @@ public class BillDaoImpl implements BillDao {
 		String jql = "SELECT bill FROM bill WHERE bill.name LIKE :keyword";
 		return entityManager.createQuery(jql, Bill.class).setParameter("keyword", "%" + keyword + "%")
 				.setFirstResult(offset).setMaxResults(maxPerPage).getResultList();
+	}
+
+	@Override
+	public Bill getLastestBill() {
+		String jql = "SELECT b FROM bill b ORDER BY bill.id DESC LIMIT 1";
+		return entityManager.createQuery(jql, Bill.class).getSingleResult();
 	}
 
 }

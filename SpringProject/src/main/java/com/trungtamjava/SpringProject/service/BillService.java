@@ -9,7 +9,7 @@ public interface BillService {
 
 	void update(BillDTO bill);
 
-	void delete(int id);
+	void delete(BillDTO billDTO);
 
 	BillDTO getById(int id);
 
@@ -20,4 +20,7 @@ public interface BillService {
 	int count(String name);
 
 	List<BillDTO> search(String keyword, int maxPerPage, int offset);
+
+	BillDTO getLastestBill();
+
 }

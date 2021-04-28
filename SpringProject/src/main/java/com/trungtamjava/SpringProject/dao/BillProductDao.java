@@ -9,7 +9,7 @@ public interface BillProductDao {
 
 	void update(BillProduct billProduct);
 
-	void delete(int id);
+	void delete(BillProduct billProduct);
 
 	BillProduct getById(int id);
 

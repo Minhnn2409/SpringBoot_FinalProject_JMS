@@ -24,7 +24,7 @@ public class AdminBillProductController {
 		keyword = keyword == null ? "" : keyword;
 		page = page == null ? 1 : page;
 
-		List<BillProductDTO> billProductDTOs = billProductService.search(keyword, page*10, 0);
+		List<BillProductDTO> billProductDTOs = billProductService.search(keyword, page * 10, 0);
 
 		request.setAttribute("billProducts", billProductDTOs);
 		request.setAttribute("keyword", keyword);
@@ -34,7 +34,10 @@ public class AdminBillProductController {
 
 	@GetMapping(value = "/admin/billProduct/delete")
 	public String deleteBillProduct(@RequestParam("id") int id) {
-		billProductService.delete(id);
+		BillProductDTO billProductDTO = billProductService.getById(id);
+		if (billProductDTO != null) {
+			billProductService.delete(billProductDTO);
+		}
 		return "redirect:/admin/billProduct/delete";
 	}
 }

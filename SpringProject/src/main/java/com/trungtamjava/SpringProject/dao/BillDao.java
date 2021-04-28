@@ -9,7 +9,7 @@ public interface BillDao {
 
 	void update(Bill bill);
 
-	void delete(int id);
+	void delete(Bill bill);
 
 	Bill getById(int id);
 
@@ -20,5 +20,7 @@ public interface BillDao {
 	int count(String name);
 
 	List<Bill> search(String keyword, int maxPerPage, int offset);
+
+	Bill getLastestBill();
 
 }

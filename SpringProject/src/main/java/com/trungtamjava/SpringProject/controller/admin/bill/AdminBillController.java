@@ -35,10 +35,13 @@ public class AdminBillController {
 		return "admin/bill/searchBill";
 	}
 
-
 	@GetMapping(value = "/admin/bill/delete")
 	public String deleteBill(@RequestParam("id") int id) {
-		billService.delete(id);
+		BillDTO billDTO = billService.getById(id);
+
+		if (billDTO != null) {
+			billService.delete(billDTO);
+		}
 		return "redirect:/admin/bill/delete";
 	}
 }

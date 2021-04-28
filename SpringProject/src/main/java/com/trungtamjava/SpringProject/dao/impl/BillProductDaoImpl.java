@@ -28,8 +28,8 @@ public class BillProductDaoImpl implements BillProductDao {
 	}
 
 	@Override
-	public void delete(int id) {
-		entityManager.remove(id);
+	public void delete(BillProduct billProduct) {
+		entityManager.remove(billProduct);
 	}
 
 	@Override

@@ -29,37 +29,44 @@ public class BillServiceImpl implements BillService {
 
 	@Override
 	public void create(BillDTO bill) {
-		billDao.create(null);
+		billDao.create(convertToEntity(bill));
 	}
 
 	@Override
 	public void update(BillDTO bill) {
-		// TODO Auto-generated method stub
-
+		billDao.update(convertToEntity(bill));
 	}
 
 	@Override
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+	public void delete(BillDTO billDTO) {
+		billDao.delete(convertToEntity(billDTO));
 	}
 
 	@Override
 	public BillDTO getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return convertToDTO(billDao.getById(id));
 	}
 
 	@Override
 	public List<BillDTO> getByUser(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Bill> bills = billDao.getByUser(userId);
+		List<BillDTO> billDTOs = new ArrayList<BillDTO>();
+
+		for (Bill bill : bills) {
+			billDTOs.add(convertToDTO(bill));
+		}
+		return billDTOs;
 	}
 
 	@Override
 	public List<BillDTO> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Bill> bills = billDao.getAll();
+		List<BillDTO> billDTOs = new ArrayList<BillDTO>();
+
+		for (Bill bill : bills) {
+			billDTOs.add(convertToDTO(bill));
+		}
+		return billDTOs;
 	}
 
 	@Override
@@ -70,8 +77,13 @@ public class BillServiceImpl implements BillService {
 
 	@Override
 	public List<BillDTO> search(String keyword, int maxPerPage, int offset) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Bill> bills = billDao.search(keyword, maxPerPage, offset);
+		List<BillDTO> billDTOs = new ArrayList<BillDTO>();
+
+		for (Bill bill : bills) {
+			billDTOs.add(convertToDTO(bill));
+		}
+		return billDTOs;
 	}
 
 	public Bill convertToEntity(BillDTO billDTO) {
@@ -101,13 +113,18 @@ public class BillServiceImpl implements BillService {
 		}
 		return billProductDTOs;
 	}
-	
+
 	private List<BillProduct> convertToBillProductEntityList(List<BillProductDTO> billProductDTOs) {
 		List<BillProduct> billProducts = new ArrayList<BillProduct>();
 		for (BillProductDTO billProductDTO : billProductDTOs) {
 			billProducts.add(billProductServiceImpl.convertToEntity(billProductDTO));
 		}
 		return billProducts;
+	}
+
+	@Override
+	public BillDTO getLastestBill() {
+		return convertToDTO(billDao.getLastestBill());
 	}
 
 }

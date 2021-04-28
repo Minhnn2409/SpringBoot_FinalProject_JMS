@@ -9,7 +9,7 @@ public interface BillProductService {
 
 	void update(BillProductDTO billProduct);
 
-	void delete(int id);
+	void delete(BillProductDTO billProductDTO);
 
 	BillProductDTO getById(int id);
 
