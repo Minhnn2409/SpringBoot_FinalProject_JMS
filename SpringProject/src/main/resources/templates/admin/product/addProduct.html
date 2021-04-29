@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+	<form action="@{/admin/product/add}" method="POST" enctype="multipart/form-data">
+		<div class="modal-header">
+			<h4 class="modal-title">Thêm sản phẩm</h4>
+		</div>
+		<div class="modal-body">
+			<div class="form-group">
+				<label>Tên sản phẩm</label> <input type="text" class="form-control" name="name" required />
+			</div>
+			<div class="form-group">
+				<label>Mô tả</label> <input type="text" class="form-control" name="description" required />
+			</div>
+			<div class="form-group">
+				<label>Giá sản phẩm</label> <input type="number" class="form-control" name="price" required />
+			</div>
+
+			<div class="form-group">
+				<label>Ảnh sản phẩm</label> <input type="file" name="image" required />
+			</div>
+
+			<div class="form-group">
+				<label>Chọn hạng mục</label> <select name="category">
+					<div th:each="category : ${categories }">
+						<option th:value="${category.id }" th:text="${category.name }"></option>
+					</div>
+				</select>
+
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="@{/admin/product/search}" class="btn btn-default">Huỷ</a> <input type="submit"
+				class="btn btn-success" value="Thêm" />
+		</div>
+	</form>
+
+</body>
+
+</html>

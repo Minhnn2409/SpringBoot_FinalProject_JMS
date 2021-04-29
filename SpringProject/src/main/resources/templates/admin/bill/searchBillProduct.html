@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+
+	<div class="container-xl">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col-sm-6">
+							<h2>Danh sách sản phẩm trong hoá đơn</h2>
+						</div>
+					</div>
+				</div>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th><span class="custom-checkbox"> <input type="checkbox" id="selectAll" /> <label
+										for="selectAll"></label>
+								</span></th>
+							<th>Mã số</th>
+							<th>Mã hoá đơn</th>
+							<th>Tên sản phẩm</th>
+							<th>Số lượng</th>
+							<th>Giá tiền</th>
+							<th>Thao tác</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!--- Edit user from database -->
+						<c:forEach items="${billProducts}" var="billProduct">
+							<tr>
+
+								<td><span class="custom-checkbox"> <input type="checkbox" id="checkbox1"
+											name="options[]" value="1" />
+										<label for="checkbox1"></label>
+									</span></td>
+								<td>${billProduct.id }</td>
+								<td>${billProduct.bill.id }</td>
+								<td>${billProduct.product.name }</td>
+								<td>${billProduct.quantity }</td>
+								<td>${billProduct.unitPrice }</td>
+								<td><a href="/StoreDemo/admin/bill/delete?id=${bill.id }" class="delete"><i
+											class="material-icons" data-toggle="tooltip" title="Xoá">&#xE872;</i></a>
+								</td>
+
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+
+				<jsp:include page="/views/admin/common/Pagination.jsp"></jsp:include>
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
